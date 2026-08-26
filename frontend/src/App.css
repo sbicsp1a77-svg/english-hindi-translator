@@ -1,0 +1,294 @@
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --background: #f1f5f9;
+  --card: #ffffff;
+  --text: #1e293b;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --english-bg: #eff6ff;
+  --hindi-bg: #fff7ed;
+  --danger: #dc2626;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--background);
+  color: var(--text);
+}
+
+.app {
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+/* Header */
+
+header {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+header h1 {
+  margin: 0;
+  color: var(--primary);
+  font-size: 36px;
+}
+
+.subtitle {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 17px;
+}
+
+/* Main */
+
+main {
+  width: 100%;
+}
+
+/* Upload */
+
+.upload-box {
+  max-width: 700px;
+  margin: 0 auto 30px;
+  padding: 30px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+  text-align: center;
+}
+
+.upload-box h2 {
+  margin-top: 0;
+  margin-bottom: 22px;
+}
+
+.file-label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.upload-box input[type="file"] {
+  width: 100%;
+  padding: 14px;
+  border: 2px dashed #cbd5e1;
+  border-radius: 10px;
+  background: #f8fafc;
+  cursor: pointer;
+}
+
+.upload-box input[type="file"]:hover {
+  border-color: var(--primary);
+}
+
+.filename {
+  margin: 15px 0;
+  color: var(--muted);
+  word-break: break-word;
+}
+
+.filename span {
+  color: var(--text);
+}
+
+/* Buttons */
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.translate-button,
+.clear-button {
+  padding: 13px 22px;
+  border: none;
+  border-radius: 9px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+
+.translate-button {
+  background: var(--primary);
+  color: white;
+}
+
+.translate-button:hover:not(:disabled) {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.clear-button {
+  background: #e2e8f0;
+  color: var(--text);
+}
+
+.clear-button:hover:not(:disabled) {
+  background: #cbd5e1;
+}
+
+.translate-button:disabled,
+.clear-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Loading */
+
+.loading-message {
+  margin-top: 20px;
+  color: var(--primary);
+}
+
+.loading-message p {
+  margin: 8px 0 0;
+}
+
+.spinner {
+  width: 28px;
+  height: 28px;
+  margin: 0 auto;
+  border: 4px solid #dbeafe;
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Error */
+
+.error {
+  margin-top: 18px;
+  color: var(--danger);
+  font-weight: 500;
+}
+
+/* Results */
+
+.results {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.result-box {
+  min-height: 320px;
+  padding: 25px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06);
+}
+
+.result-box h2 {
+  margin-top: 0;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--border);
+}
+
+.english-box {
+  background: var(--english-bg);
+}
+
+.hindi-box {
+  background: var(--hindi-bg);
+}
+
+.result-box pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: inherit;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.placeholder {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Footer */
+
+footer {
+  text-align: center;
+  margin-top: 40px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Tablet */
+
+@media (max-width: 768px) {
+  .app {
+    padding: 25px 15px;
+  }
+
+  header h1 {
+    font-size: 28px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+  }
+
+  .upload-box {
+    padding: 22px;
+  }
+
+  .results {
+    grid-template-columns: 1fr;
+  }
+
+  .result-box {
+    min-height: 250px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 23px;
+  }
+
+  .upload-box {
+    padding: 18px;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  .translate-button,
+  .clear-button {
+    width: 100%;
+  }
+
+  .result-box {
+    padding: 18px;
+  }
+
+  .result-box pre {
+    font-size: 16px;
+  }
+}
